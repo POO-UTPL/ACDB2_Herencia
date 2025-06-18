@@ -34,4 +34,6 @@ class Gerente extends Empleado{
     }
 }
 class Operario extends Empleado{
-    public double horasLaboradas;}
+    public double horasLaboradas;
+    
+}
