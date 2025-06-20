@@ -1,34 +1,31 @@
 public class EjecutorEmpleado {
     public static void main(String[] args) {
-        Empleado jhoel = new Empleado("Jholein", 1500.0);
-        System.out.println(jhoel);
-        Gerente axcel = new Gerente();
-        System.out.println(axcel);
-        Gerente michael = new Gerente("IA", "Natasha", "Micha", 5000.0);
-        System.out.println(michael);
+        Gerente gerente1 = new Gerente();
+        Gerente gerente2 = new Gerente("Computacion", "Mary", "Joelito", 1000.0);
+        System.out.println(gerente2);
     }
 }
 class Empleado{
     public String nombre;
     private double sueldo;
-    public Empleado() {  }
-    public Empleado(String nombre, double sueldo) {
+    public Empleado(){}
+    public Empleado(String nombre, double sueldo){
         this.nombre = nombre;
-        this.sueldo = sueldo; } 
-    @Override
+        this.sueldo = sueldo;
+    }
     public String toString() {
         return "Empleado{" + "nombre=" + nombre + ", sueldo=" + sueldo + '}';}
 }
 class Gerente extends Empleado{
     public String departamento;
     public String secretaria;
-    public Gerente() {}
+    public Gerente(){}
     public Gerente(String departamento, String secretaria, String nombre, double sueldo){
-        //super(); //Invocacion explicita (si esta) / implicita (asi no este) de padre
-        super(nombre, sueldo); //Invocacion EXPLICITA del constructor del padre
+        //Se invoca IMPLICITAMENTE el constror implicito del padre
+        super(nombre, sueldo);//Se invoca EXPLICITAMENTE el constror EXPLICITO CON PARAMETOR/Sobrecargado del padre
         this.departamento = departamento;
-        this.secretaria = secretaria;}
-    @Override
+        this.secretaria = secretaria;
+    }
     public String toString() {
         return "Gerente{" + "departamento=" + departamento + ", secretaria=" + secretaria + '}' + super.toString();
     }
