@@ -78,7 +78,7 @@ public class Ejecutor_EstAsigs_V2 {
                                                                     Arrays.asList 
                                                                     (
                                                                      new Asignatura("EST", 7.5, 9.1),
-                                                                     new Asignatura("HUMN", 8.7, 7.3)
+                                                                     new Asignatura("HUMN", 5.7, 0.3)
                                                                     )
                                                                   );
         //ESTUDIANTE PRESENCIAL => SubClase1 de Estudiante
@@ -93,6 +93,12 @@ public class Ejecutor_EstAsigs_V2 {
         Estudiante_Online est2 = new Estudiante_Online(10, "JuanSebas", asigEst2);
         est2.asigs.get(0).definirEstado(est2.asigs.get(0).promd);
         est2.asigs.get(1).definirEstado(est2.asigs.get(1).promd);
+        System.out.println(est2);
+        est2.definirEstadoBeca();
+        System.out.println(est2);
+        est2.asigs.get(1).suple = 7.5;
+         est2.asigs.get(1).definirEstado(est2.asigs.get(1).suple);
+        est2.definirEstadoBeca();
         System.out.println(est2);
         
         
