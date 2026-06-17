@@ -77,18 +77,23 @@ public class Ejecutor_EstAsigs_V2 {
         ArrayList<Asignatura> asigEst2 = new ArrayList<Asignatura>(
                                                                     Arrays.asList 
                                                                     (
-                                                                     new Asignatura("EST", 7.5, 3.1),
-                                                                     new Asignatura("HUMN", 2.7, 2.3)
+                                                                     new Asignatura("EST", 7.5, 9.1),
+                                                                     new Asignatura("HUMN", 8.7, 7.3)
                                                                     )
                                                                   );
+        //ESTUDIANTE PRESENCIAL => SubClase1 de Estudiante
         Estudiante_Presencial est1 = new Estudiante_Presencial("Jojan", asigEst1);
-        Estudiante_Online est2 = new Estudiante_Online(10, "JuanSebas", asigEst2);
         est1.asigs.get(0).definirEstado(est1.asigs.get(0).promd);
         est1.asigs.get(1).definirEstado(est1.asigs.get(1).promd);
         System.out.println(est1);
         est1.asigs.get(1).suple = 7;
         est1.asigs.get(1).definirEstado(est1.asigs.get(1).suple);
         System.out.println(est1);
+        //ESTUDIANTE ONLINE => SubClase2 de Estudiante
+        Estudiante_Online est2 = new Estudiante_Online(10, "JuanSebas", asigEst2);
+        est2.asigs.get(0).definirEstado(est2.asigs.get(0).promd);
+        est2.asigs.get(1).definirEstado(est2.asigs.get(1).promd);
+        System.out.println(est2);
         
         
     }
