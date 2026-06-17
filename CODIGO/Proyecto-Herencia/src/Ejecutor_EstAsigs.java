@@ -69,8 +69,11 @@ public class Ejecutor_EstAsigs {
                                                                                   new Asignatura("ESTD", 4, 3)
                                                                                  ) 
                                                                    );
+        
         Estudiante_Presencial est1 = new Estudiante_Presencial("Rual", asigsEst1);
         Estudiante_Online est2 = new Estudiante_Online(100.5, "Juana", asigsEst2);
+        est1.asigs.get(0).determinarEstado(est1.asigs.get(0).promedio);
+        est1.asigs.get(1).determinarEstado(est1.asigs.get(1).promedio);
         System.out.println(est1);
         System.out.println(est2);
     }
