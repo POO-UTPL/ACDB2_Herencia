@@ -27,6 +27,7 @@ class Asignatura{
 }
 class Estudiante{
     public String nombEst;     public ArrayList<Asignatura> asigs;
+    public Estudiante() {}
     public Estudiante(String nombEst, ArrayList<Asignatura> asigs)  {
         this.nombEst = nombEst;        this.asigs = asigs;          }
     @Override
@@ -39,43 +40,40 @@ class Estudiante_Presencial extends Estudiante{
         super(nombEst, asigs);   }    
 }
 class Estudiante_Online extends Estudiante{
-    public double beca;
-    public Estudiante_Online(double beca, String nombEst, ArrayList<Asignatura> asigs) {
+    public double procentajeBeca;
+    public boolean estadoBeca; //true => Con beca. false => Perdio beca
+    public Estudiante_Online(double procentajeBeca, String nombEst, ArrayList<Asignatura> asigs) {
         super(nombEst, asigs);
-        this.beca = beca;    }
-    public boolean beca(){
-        boolean estadoBeca = true;
+        this.procentajeBeca = procentajeBeca;                                 }
+    public boolean definirBeca(){
+        this.estadoBeca = true;
         for(Asignatura asig : this.asigs)
-            if (!asig.isEstado()){
+            if (asig.isEstado() == false){
                estadoBeca = false; 
                break;
             }
         return estadoBeca;
     }
-    @Override
-    public String toString() {
-        return "Estudiante_Online{" + "beca=" + beca + '}' + super.toString();
-    }
 }
 public class Ejecutor_EstAsigs {
     public static void main(String[] args) {
-        ArrayList<Asignatura> asigsEst1 = new ArrayList<Asignatura>(Arrays.asList(
-                                                                                  new Asignatura("POO", 6.5, 5.5),
-                                                                                  new Asignatura("MATE", 10, 9)
-                                                                                 ) 
-                                                                   );
-        ArrayList<Asignatura> asigsEst2 = new ArrayList<Asignatura>(Arrays.asList(
-                                                                                  new Asignatura("PROG", 6, 5),
-                                                                                  new Asignatura("ESTD", 4, 3)
-                                                                                 ) 
-                                                                   );
+        ArrayList<Asignatura> asigsEst1 = new ArrayList<Asignatura>(
+                                                Arrays.asList(
+                                                    new Asignatura("POO", 6.5, 5.5),
+                                                    new Asignatura("MATE", 10, 9)
+                                                ) 
+                                              );
+        ArrayList<Asignatura> asigsEst2 = new ArrayList<Asignatura>(
+                                                Arrays.asList(
+                                                    new Asignatura("PROG", 6, 5),
+                                                    new Asignatura("ESTD", 4, 3)
+                                                ) 
+                                              );
+        //ESTUDIANTE PRESENCIAL => SubClase de Estudiante
+        Estudiante_Presencial est1 = new Estudiante_Presencial("Raul", asigsEst1);
         
-        Estudiante_Presencial est1 = new Estudiante_Presencial("Rual", asigsEst1);
-        Estudiante_Online est2 = new Estudiante_Online(100.5, "Juana", asigsEst2);
-        est1.asigs.get(0).determinarEstado(est1.asigs.get(0).promedio);
-        est1.asigs.get(1).determinarEstado(est1.asigs.get(1).promedio);
-        System.out.println(est1);
-        System.out.println(est2);
+        //ESTUDIANTE Online => SubClase de Estudiante
+        Estudiante_Online est2 = new Estudiante_Online(10, "Jonathan", asigsEst2);
     }
 }
 

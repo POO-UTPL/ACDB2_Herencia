@@ -97,10 +97,8 @@ public class Ejecutor_EstAsigs_V2 {
         est2.definirEstadoBeca();
         System.out.println(est2);
         est2.asigs.get(1).suple = 7.5;
-         est2.asigs.get(1).definirEstado(est2.asigs.get(1).suple);
+        est2.asigs.get(1).definirEstado(est2.asigs.get(1).suple);
         est2.definirEstadoBeca();
         System.out.println(est2);
-        
-        
     }
 }
