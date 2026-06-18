@@ -37,7 +37,7 @@ class Estudiante{
 }
 class Estudiante_Presencial extends Estudiante{
     public Estudiante_Presencial(String nombEst, ArrayList<Asignatura> asigs) {
-        super(nombEst, asigs);   }    
+        super(nombEst, asigs);                                                }    
 }
 class Estudiante_Online extends Estudiante{
     public double procentajeBeca;
@@ -52,8 +52,10 @@ class Estudiante_Online extends Estudiante{
                estadoBeca = false; 
                break;
             }
-        return estadoBeca;
-    }
+        return estadoBeca;                                                    }
+    @Override
+    public String toString() {
+        return "Estudiante_Online{" + "procentajeBeca=" + procentajeBeca + ", estadoBeca=" + estadoBeca + '}' + super.toString(); }
 }
 public class Ejecutor_EstAsigs {
     public static void main(String[] args) {
@@ -65,8 +67,8 @@ public class Ejecutor_EstAsigs {
                                               );
         ArrayList<Asignatura> asigsEst2 = new ArrayList<Asignatura>(
                                                 Arrays.asList(
-                                                    new Asignatura("PROG", 6, 5),
-                                                    new Asignatura("ESTD", 4, 3)
+                                                    new Asignatura("PROG", 9.1, 7.8),
+                                                    new Asignatura("ESTD", 8.6, 6.5)
                                                 ) 
                                               );
         //ESTUDIANTE PRESENCIAL => SubClase de Estudiante
@@ -74,6 +76,11 @@ public class Ejecutor_EstAsigs {
         
         //ESTUDIANTE Online => SubClase de Estudiante
         Estudiante_Online est2 = new Estudiante_Online(10, "Jonathan", asigsEst2);
+        for(Asignatura asig : asigsEst2){
+            asig.determinarEstado(asig.promedio);
+        }
+        est2.definirBeca();
+        System.out.println(est2);
     }
 }
 
